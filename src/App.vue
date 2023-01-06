@@ -1,21 +1,22 @@
 <template>
   <NavComponent/>
-  <router-view/>
+    <main>
+      <router-view/>
+    </main>
+  <FooterComponent />
 </template>
+
+<script lang="ts">
+  import FooterComponent from './components/FooterComponent/FooterComponent.vue';
+  import NavComponent from './components/NavComponent/NavComponent.vue';
+  export default {
+    components: {
+      NavComponent,
+      FooterComponent
+    }
+  }
+</script>
 
 <style lang="scss">
 
 </style>
-
-<script lang="ts">
-import NavComponent from './components/NavComponent/NavComponent.vue';
-import { Options, Vue } from 'vue-class-component';
-
-@Options({
-  components: {
-    NavComponent,
-  },
-})
-export default class HomeView extends Vue {}
-</script>
-
