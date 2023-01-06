@@ -1,13 +1,21 @@
 <template>
-  <div></div>
+  <div @click="increment">+</div>
+  <div>{{ count }}</div>
+  <div @click="dicrement">-</div>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component';
+import { useStore } from 'vuex';
+import { computed } from 'vue';
 
-@Options({
-  components: {
-  },
-})
-export default class HomeView extends Vue {}
+export default {
+  setup() {
+    const store = useStore()
+    return {
+      count: computed(() => store.state.countState),
+      increment: () => store.commit('countMutationIncrement'),
+      dicrement: () => store.commit('countMutationDicrement')
+    }
+  }
+}
 </script>
