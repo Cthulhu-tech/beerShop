@@ -1,19 +1,9 @@
-import { countMutationIncrement, countMutationDicrement } from './mutatuons/countMutation';
-import { countState } from './state/countState';
-import { createStore } from 'vuex'
+import { countModuleOperation } from './modules/count/countOperation';
+import { IStore } from './types/StoreType';
+import { createStore } from 'vuex';
 
-export default createStore({
-  state: {
-    countState
-  },
-  getters: {
-  },
-  mutations: {
-    countMutationIncrement,
-    countMutationDicrement
-  },
-  actions: {
-  },
+export const store = createStore<IStore>({
   modules: {
+    countModuleOperation
   }
 })
